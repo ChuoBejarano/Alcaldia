@@ -31,25 +31,18 @@
                      <label>Permisos</label>   
                   </div>
                 <div class="form-group">
-                    <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 50%;">
-                    <option>Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
+                    <select class="select2" multiple="multiple" data-placeholder="Selecciona Roles" style="width: 50%;" name="role_id[]" id="roles">
+                      
+                  @foreach($data['roles'] as $role)
+                    <option value="{{$role->id}}">{{$role->role}}</option>
+                      @endforeach
                   </select>
                   </div>
                   <div class="form-group">
-                    <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 50%;">
-                    <option>Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
+                    <select class="select2 permissions" multiple="multiple" data-placeholder="Selecciona Permisos" style="width: 50%;" name="permission_id[]" id="permisos">
+                      @foreach($data['permissions'] as $permission)
+                    <option value="{{$permission->id}}">{{$permission->permission}}</option>
+                    @endforeach
                   </select>
                   </div>
                 <div class="d-flex justify-content-center">
@@ -64,6 +57,18 @@
       <script>
       $('.select2').select2();
      </script>
+  <!--<script type="text/javascript">
+    $('select#roles').change(function(){
+        var roleId = $(this).val();
+        $permisositems = $('.permissionsItems');
+        $.get('/permisos/'+roleId, function(data){
+            $.each(data, function(index, element){
+              console.log(element);
+                $('select#permisos').append('<option value="'+element.id+'" class="permissionsItems">'+element.permission+'</option>')
+            });
+        }, 'json');
+    });
+</script>-->
 @endsection
 
 

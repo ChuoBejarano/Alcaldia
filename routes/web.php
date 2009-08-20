@@ -20,3 +20,13 @@ Route::get('/Historial/Buscar', [App\Http\Controllers\HomeController::class, 'bu
 
 Route::get('/Documentación', [App\Http\Controllers\HomeController::class, 'documentacion'])->name('documentacion');
 Route::get('/Acerca', [App\Http\Controllers\HomeController::class, 'informacion'])->name('informacion');
+
+/*Route::get('/permisos/{id}', function($id)
+{
+	$role_id = $id;
+
+	$permisos = Role::find($role_id)->permission;
+
+	
+    return Response::json($permisos);
+});*/

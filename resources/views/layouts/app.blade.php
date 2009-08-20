@@ -11,11 +11,11 @@
 
    
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('lib/AdminLTE/dist/css/adminlte.css') }}">
     
     <link rel="stylesheet" href="{{ asset('lib/bootstrap-icons/font/bootstrap-icons.css') }}">
-    
+    <script src="{{ asset('lib/AdminLTE/docs/assets/plugins/jquery/jquery.min.js') }}">
+    </script>
 </head>
 <body>
     <main class="py-4">
@@ -26,11 +26,9 @@
         @endcomponent
     </main>
   <!-- Scripts --> 
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('lib/AdminLTE/docs/assets/plugins/jquery/jquery.min.js') }}">
-    </script>
-
     <script src="{{ asset('lib/AdminLTE/dist/js/adminlte.min.js') }}"></script>
+
+
     <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script> 
 </body>     
 </html>

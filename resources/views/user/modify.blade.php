@@ -46,21 +46,29 @@
                   <div>
                      <label>Permisos</label>   
                   </div>
-                    @foreach($data['roles'] as $role)
-                      <div class="checkbox">
-                        <input type="checkbox" name="role_id[]" value="{{$role->id}}"> {{$role->role}}</input>       
-                              @foreach($data['permissions'] as $permission)
-                                @if($role->id==$permission->role_id)
-                                  <input type="checkbox" name="permission_id[]" value="{{$permission->id}}"> {{$permission->permission}}
-                                  </input>
-                                @endif
-                              @endforeach
-                          @endforeach
-                      </div>
-                   </div>
+                    <div class="form-group">
+                    <select class="select2" multiple="multiple" data-placeholder="Selecciona Roles" style="width: 50%;" name="role_id[]" id="roles">
+                      
+                  @foreach($data['roles'] as $role)
+                    <option value="{{$role->id}}">{{$role->role}}</option>
+                      @endforeach
+                  </select>
+                  </div>
+                  <div class="form-group">
+                    <select class="select2" multiple="multiple" data-placeholder="Selecciona Permisos" style="width: 50%;" name="permission_id[]" id="permisos">
+                      @foreach($data['permissions'] as $permission)
+                    <option value="{{$permission->id}}">{{$permission->permission}}</option>
+                    @endforeach
+                  </select>
+                  </div>
                   <div class="d-flex justify-content-center">
                     <a href="{{route('home')}}" class="btn btn-dark mx-2">Atras</a>
                     <button type="submit" class="btn btn-primary">Modificar</button>
                 </div>  
             </form>
+<link rel="stylesheet" href="lib/AdminLTE/plugins/select2/css/select2.min.css">
+<script src="lib/AdminLTE/plugins/select2/js/select2.full.min.js"></script>
+  <script>
+    $('.select2').select2();
+    </script>
 @endsection
