@@ -12,35 +12,18 @@
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
-  <div class="card col">
-    <div clas="card body">
-    <form action="{{route('buscar')}}" method="get" class="mt-1">
-      <div class="input-group mb-3">
-      <input type="text" class="form-control-lg" placeholder="Buscar Usuarios" name="busqueda">
-            <button class="btn btn-outline-secondary" type="submit" id="buscar">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-        </form>
-         @if (isset($data))
-        <div class="panel panel-success">
-            <div class="panel-heading"></div>
-            <div class="panel-body">
-
-                <div class='table-responsive'>
-                  <table class='table table-bordered table-hover'>
+  <div class="card">
+          <div class='card body'>
+                  <table class='table text-center text-uppercase'>
                     <thead>
                       <tr>
-                        <th>ID</th>
-                        <th>Usuario</th>
-                        <th>Movimientos</th>
-
+                        <th scope="col">ID</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Movimientos</th>
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach($data['user'] as $users)
+                    @foreach($user as $users)
                         <tr>
                             <td>{{$users->id}}</td>
                             <td>{{$users->name}}</td>
@@ -50,9 +33,11 @@
                     
                     </tbody>
                         </table>
-
+                          <div class="d-flex justify-content-center">
+                               @if (count($user))
+                                {{ $user->links() }}
+                                @endif
+                          </div>
                       </div>
-                    </div>  
-                  </div>
-                  @endif
+                    </div>            
 @endsection

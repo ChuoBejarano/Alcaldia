@@ -22,56 +22,56 @@ class PermissionSeeder extends Seeder
         ]);
         
         Permission::create([
-            'permission' => 'bbbb',
+            'permission' => 'Vehiculos',
             'role_id' => 2
         ]);
 
         Permission::create([
-            'permission' => 'cccc',
+            'permission' => 'Cobranza',
             'role_id' => 3
         ]);
         
         Permission::create([
-            'permission' => 'dddd',
+            'permission' => 'Actividad Economica',
             'role_id' => 1
         ]);
         
         Permission::create([
-            'permission' => 'ffff',
+            'permission' => 'Propagando Comercial',
             'role_id' => 2
         ]);
 
         Permission::create([
-            'permission' => 'gggg',
+            'permission' => 'Cobranza de Aseo',
             'role_id' => 3
         ]);
         Permission::create([
-            'permission' => 'aaaa',
+            'permission' => 'Solvencia',
             'role_id' => 4
         ]);
         
         Permission::create([
-            'permission' => 'bbbb',
+            'permission' => 'Estados de Cuentas',
             'role_id' => 5
         ]);
 
         Permission::create([
-            'permission' => 'cccc',
+            'permission' => 'Cambio de Placa',
             'role_id' => 6
         ]);
         
         Permission::create([
-            'permission' => 'dddd',
+            'permission' => 'Avaluo del Inmueble',
             'role_id' => 7
         ]);
         
         Permission::create([
-            'permission' => 'ffff',
+            'permission' => 'Agregar Conceptos',
             'role_id' => 8
         ]);
 
         Permission::create([
-            'permission' => 'gggg',
+            'permission' => 'Inmuebles',
             'role_id' => 1
         ]);
     }

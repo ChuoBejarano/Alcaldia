@@ -151,10 +151,12 @@ class HomeController extends Controller
 
     public function historial()
     {
-        return view('historial');
+        $user= User::all();
+        $user = User::orderBy('id', 'asc')->Simplepaginate(4);
+        return view('historial', compact('user'));
     }
 
-    public function buscar(Request $request)
+  /*  public function buscar(Request $request)
     {
        $data=null;
        $input = $request->all();
@@ -167,8 +169,36 @@ class HomeController extends Controller
     }
     
       return view('historial');
-    }
+    }*/
+    public function show($id)
+    {
+      $data=null;
+        $user=User::find($id);
 
+         $user_permisos = User::select('roles.role','permissions.*','role_user.*','permission_user.*')
+                ->leftjoin('permission_user', 'users.id' , '=' , 'permission_user.user_id')
+                ->leftjoin('role_user', 'users.id' , '=' , 'role_user.user_id')
+                ->leftjoin('roles', 'role_user.role_id' , '=' , 'roles.id')
+                ->leftjoin('permissions', 'permission_user.permission_id' , '=' , 'permissions.id')
+
+                ->where('users.id' , '=' , $user->id)
+                
+                ->get();
+        $data['roles']=Role::all();
+
+        $permissions = Role::select('roles.*','permissions.*')
+                ->join('permissions', 'roles.id', '=', 'permissions.role_id')
+                ->orderBY('roles.id')
+                ->get();
+        $data['permissions']=$permissions;
+      
+
+       $data['user']=$user;
+
+       $data['permisos_user']=$user_permisos;
+
+        return view("user.show", compact('data'));
+    }
     public function documentacion()
     {
         return view("documentacion");

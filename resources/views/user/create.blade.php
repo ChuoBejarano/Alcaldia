@@ -39,7 +39,7 @@
                   </select>
                   </div>
                   <div class="form-group">
-                    <select class="select2 permissions" multiple="multiple" data-placeholder="Selecciona Permisos" style="width: 50%;" name="permission_id[]" id="permisos">
+                    <select class="select2 permissionsItems" multiple="multiple" data-placeholder="Selecciona Permisos" style="width: 50%;" name="permission_id[]" id="permisos">
                       @foreach($data['permissions'] as $permission)
                     <option value="{{$permission->id}}">{{$permission->permission}}</option>
                     @endforeach
@@ -57,9 +57,9 @@
       <script>
       $('.select2').select2();
      </script>
-  <!--<script type="text/javascript">
+  <script type="text/javascript">
     $('select#roles').change(function(){
-        var roleId = $(this).val();
+        let roleId = $(this).val();
         $permisositems = $('.permissionsItems');
         $.get('/permisos/'+roleId, function(data){
             $.each(data, function(index, element){
@@ -68,7 +68,7 @@
             });
         }, 'json');
     });
-</script>-->
+</script>
 @endsection
 
 

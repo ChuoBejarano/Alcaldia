@@ -17,12 +17,12 @@
 <div class="card">
     <div class="card-header">
       <div class="d-flex justify-content-between">
-        <form class="mt-1">
+        <!--<form class="mt-1">
           <div class="input-group mb-3">
             <input type="text" class="form-control-lg" placeholder="Buscar Usuarios" aria-label="Buscar Usuarios" aria-describedby="buscar">
             <button class="btn btn-outline-secondary" type="button" id="buscar"><i class="bi bi-search"></i></button>
           </div>
-        </form>
+        </form>-->
         <a href="{{ route('user.create') }}" class="btn btn-success">
           <i class="bi bi-person-plus"></i> Registrar
         </a>
@@ -43,6 +43,9 @@
             <th>{{$user->id}}</th>
             <td>{{$user->name}}</td>
             <td>
+              <a href="{{ route('user.show',$user->id)}}">
+              <button class="btn btn-primary"><i class="bi bi-eye"></i></button>
+              </a>
               <a href="{{ route('user.modify',$user->id)}}">
               <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
               </a>

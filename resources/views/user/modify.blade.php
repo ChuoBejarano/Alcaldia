@@ -66,8 +66,8 @@
                     <button type="submit" class="btn btn-primary">Modificar</button>
                 </div>  
             </form>
-<link rel="stylesheet" href="lib/AdminLTE/plugins/select2/css/select2.min.css">
-<script src="lib/AdminLTE/plugins/select2/js/select2.full.min.js"></script>
+<link rel="stylesheet" href="/lib/AdminLTE/plugins/select2/css/select2.min.css">
+<script src="/lib/AdminLTE/plugins/select2/js/select2.full.min.js"></script>
   <script>
     $('.select2').select2();
     </script>
